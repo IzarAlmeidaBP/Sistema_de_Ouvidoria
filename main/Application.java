@@ -8,65 +8,55 @@ import entities.Usuario;
 public class Application {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Seja Bem Vindo!");
+		System.out.println("Realizar Manifestaçao:\n" + "Escolha uma das Opções:\n1-Login\n2-Cadastro\n3-Sair");
+		Integer resposta = Integer.parseInt(scanner.nextLine());
+		;
 		Usuario usuario = new Usuario();
 		Manifestacao manifestacao = new Manifestacao();
+		boolean continua = true;
 
-		System.out.println("Seja Bem Vindo!");
-		System.out.println("Realizar Manifestaçao:\nEscolha uma das Opções:\n1-Login\n2-Cadastro\n3-Sair");
-		Integer resposta = Integer.parseInt(sc.nextLine());
+		if (resposta == 1) {
+			System.out.println("faz login");
+		}
+		if (resposta == 2) {
+			System.out.println("Preencha os dados para realizar seu cadastro:");
 
-		do {
+			System.out.println("Seu nome completo:");
+			String nomeUsuario = scanner.nextLine();
+			usuario.setNomeUser(nomeUsuario);
 
-			if (resposta == 1) {
-				System.out.println("Digite seu Login: ");
-				String login = sc.nextLine();
+			System.out.println("Seu nome de usuário:");
+			String loginUsuario = scanner.nextLine();
+			usuario.setLoginUser(loginUsuario);
 
-				System.out.println("Digite a senha: ");
-				String senhaUser = sc.nextLine();
+			System.out.println("Sua senha:");
+			String senhaUsuario = scanner.nextLine();
+			usuario.setSenhaUser(senhaUsuario);
 
-				System.out.println("Qual manifestação deseja realizar:\n1-Reclamação\n2-Sugestão\n3-Elogio");
-				Integer numeroEscolhido = Integer.parseInt(sc.nextLine());
-				if (numeroEscolhido == 1) {
-					System.out.println("Digite o Tiutlo da sua Reclamção");
-					String titulo = sc.nextLine();
-					manifestacao.setTitulo(titulo);
+			usuario.criaUserID();
+			System.out.println(usuario.toString());
 
-					System.out.println("Digite sua Reclamação");
-					String descricao = sc.nextLine();
+			System.out.println("Deseja fazer login?\n1-Sim/2-Não ?");
+			Integer pergunta = Integer.parseInt(scanner.nextLine());
 
-					System.out.println("O id de sua Reclamção é: " + manifestacao.getId());
-					s
-					
+			if (pergunta == 1) {
 
+				System.out.println("Digite seu login:");
+				String login = scanner.nextLine();
+				System.out.println("Digite sua senha:");
+				String senha = scanner.nextLine();
+				if (usuario.verificaUser(login, senhaUsuario) == true) {
+					boolean logado = true;
+					System.out.println("Deseja fazer manifestação?\n1-Sim/2-Não");
 				}
 
-				System.out.println("Deseja colocar qual titulo?");
-				String titulo = sc.nextLine();
-				manifestacao.setTitulo(titulo);
-
-				System.out.println("");
-
-			} else if (resposta == 2) {
-				System.out.println("Digite seu Nome Completo:");
-				String nomeUser = sc.nextLine();
-				usuario.setNomeUser(nomeUser);
-
-				System.out.println("Crie seu UserName:");
-				String userName = sc.nextLine();
-				usuario.setLoginUser(userName);
-
-				System.out.println("Crie sua Senha :");
-				String senhaUser = sc.nextLine();
-				usuario.setSenhaUser(senhaUser);
-
-			} else {
-				System.out.println("Opção Inválida!");
-
 			}
-		} while (resposta != 3);
+
+		} else {
+			System.out.println("acaba");
+		}
 
 	}
-
 }

@@ -5,7 +5,7 @@ import enum_Package.Tipo;
 
 public class Manifestacao {
 
-	private Integer id;
+	private int id;
 	private String titulo;
 	private String descricao;
 	private Tipo tipoMani;
@@ -15,7 +15,7 @@ public class Manifestacao {
 
 	}
 
-	public Manifestacao(Integer id, String titulo, String descricao, Tipo tipoMani, Situacao situcaoMani) {
+	public Manifestacao(int id, String titulo, String descricao, Tipo tipoMani, Situacao situcaoMani) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
@@ -23,11 +23,11 @@ public class Manifestacao {
 		this.situacaoMani = situcaoMani;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -61,6 +61,10 @@ public class Manifestacao {
 
 	public void setSitucaoMani(Situacao situcaoMani) {
 		this.situacaoMani = situcaoMani;
+	}
+
+	public int criaManiID() {
+		return this.id = id + 1;
 	}
 
 }

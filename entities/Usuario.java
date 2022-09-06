@@ -6,13 +6,11 @@ import java.util.List;
 public class Usuario {
 
 	private String nomeUser;
-	private Integer idUser;
+	private int idUser;
 	private String loginUser;
 	private String senhaUser;
 
 	private List<Manifestacao> manfistacoesAbertas = new ArrayList<>();
-	
-	
 
 	public Usuario() {
 
@@ -24,7 +22,7 @@ public class Usuario {
 		this.senhaUser = senhaUser;
 	}
 
-	public Usuario(String nomeUser, Integer idUser, String loginUser, String senhaUser) {
+	public Usuario(String nomeUser, int idUser, String loginUser, String senhaUser) {
 		this.nomeUser = nomeUser;
 		this.idUser = idUser;
 		this.loginUser = loginUser;
@@ -39,11 +37,11 @@ public class Usuario {
 		this.nomeUser = nomeUser;
 	}
 
-	public Integer getIdUser() {
+	public int getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(Integer idUser) {
+	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
 
@@ -65,6 +63,16 @@ public class Usuario {
 
 	public List<Manifestacao> getManfistacoes() {
 		return manfistacoesAbertas;
+	}
+
+	public int criaUserID() {
+		return this.idUser = idUser + 1;
+	}
+
+	public boolean verificaUser(String login, String senha) {
+		if (this.nomeUser.equals(login) && this.sen(senha))
+			;
+		return true;
 	}
 
 }
