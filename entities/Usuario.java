@@ -82,7 +82,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Nome Completo=" + nomeUser + ", Login =" + loginUser + ", Senha = ******" + ", ID =" + idUser + "]";
+		return "Nome Completo=" + nomeUser + ", Login =" + loginUser + ", Senha = ******" + ", ID =" + idUser + "";
 	}
 
 }

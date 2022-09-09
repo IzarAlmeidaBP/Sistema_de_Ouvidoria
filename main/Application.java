@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import entities.Manifestacao;
 import entities.Usuario;
+import enum_Package.Situacao;
+import enum_Package.Tipo;
 
 public class Application {
 
@@ -43,12 +45,20 @@ public class Application {
 
 						System.out.println("Insira o titulo da sua Reclamaçao:");
 						String tituloR = sc.nextLine();
+
 						System.out.println("Insira sua Reclamção:");
 						String reclamacaoT = sc.nextLine();
+
 						Manifestacao manifestacao = new Manifestacao(tituloR, reclamacaoT);
 						usuario.addManifestacao(manifestacao);
 
+						System.out.println(usuario.getManfistacoes());
+
+						manifestacao.setTipoMani(Tipo.RECLAMAÇÃO);
+						manifestacao.setSitucaoMani(Situacao.Em_Andamento);
+
 						System.out.println("O Id da sua Manifestação é: " + manifestacao1.getIdMani());
+
 					} else if (respostaOp == 2) {
 						System.out.println("Insira o titulo da sua Sugestão:");
 						String tituloR = sc.nextLine();
@@ -59,6 +69,8 @@ public class Application {
 						System.out.println("O Id da sua Manifestação é: " + manifestacao1.getIdMani());
 						Manifestacao manifestacao = new Manifestacao(tituloR, reclamacaoT);
 						usuario.addManifestacao(manifestacao);
+						manifestacao.setTipoMani(Tipo.SUGESTÃO);
+						manifestacao.setSitucaoMani(Situacao.Em_Andamento);
 
 					} else if (respostaOp == 3) {
 
@@ -71,6 +83,8 @@ public class Application {
 						System.out.println("O Id da sua Manifestação é: " + manifestacao1.getIdMani());
 						Manifestacao manifestacao = new Manifestacao(tituloR, reclamacaoT);
 						usuario.addManifestacao(manifestacao);
+						manifestacao.setTipoMani(Tipo.ELOGIO);
+						manifestacao.setSitucaoMani(Situacao.Em_Andamento);
 					}
 
 				} else if (respostaMani == 2) {

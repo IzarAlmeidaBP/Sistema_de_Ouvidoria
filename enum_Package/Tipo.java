@@ -2,7 +2,7 @@ package enum_Package;
 
 public enum Tipo {
 
-	Reclamacao(1), Sugestao(2), Elogio(3);
+	RECLAMAÇÃO(1), SUGESTÃO(2), ELOGIO(3);
 
 	private int valorT;
 

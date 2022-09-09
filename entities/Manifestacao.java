@@ -72,4 +72,11 @@ public class Manifestacao {
 		int numero = aleatorio.nextInt(99999);
 		return String.format("%06d", numero);
 	}
+
+	@Override
+	public String toString() {
+		return "O ID da sua Manifestcação é:" + idMani + "\nO titulo da sua manifestação é: " + titulo
+				+ "\nSua Manifestação:" + descricao;
+	}
+
 }
