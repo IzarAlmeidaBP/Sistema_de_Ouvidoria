@@ -1,11 +1,14 @@
 package entities;
 
+import java.util.Random;
+import java.util.UUID;
+
 import enum_Package.Situacao;
 import enum_Package.Tipo;
 
 public class Manifestacao {
 
-	private int id;
+	private String idMani = getIdManiAlea();
 	private String titulo;
 	private String descricao;
 	private Tipo tipoMani;
@@ -15,20 +18,21 @@ public class Manifestacao {
 
 	}
 
-	public Manifestacao(int id, String titulo, String descricao, Tipo tipoMani, Situacao situcaoMani) {
-		this.id = id;
+	public Manifestacao(String titulo, String descricao) {
+		this.idMani = idMani;
+		this.titulo = titulo;
+		this.descricao = descricao;
+	}
+
+	public Manifestacao(String titulo, String descricao, Tipo tipoMani, Situacao situcaoMani) {
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.tipoMani = tipoMani;
 		this.situacaoMani = situcaoMani;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public String getIdMani() {
+		return idMani;
 	}
 
 	public String getTitulo() {
@@ -63,8 +67,9 @@ public class Manifestacao {
 		this.situacaoMani = situcaoMani;
 	}
 
-	public int criaManiID() {
-		return this.id = id + 1;
+	public static String getIdManiAlea() {
+		Random aleatorio = new Random();
+		int numero = aleatorio.nextInt(99999);
+		return String.format("%06d", numero);
 	}
-
 }

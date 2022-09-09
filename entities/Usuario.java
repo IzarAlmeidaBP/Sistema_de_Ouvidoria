@@ -2,15 +2,17 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 public class Usuario {
 
 	private String nomeUser;
-	private int idUser;
 	private String loginUser;
 	private String senhaUser;
+	private String idUser = getIdAlea();
 
-	private List<Manifestacao> manfistacoesAbertas = new ArrayList<>();
+	private List<Manifestacao> manifestacoesAbertas = new ArrayList<>();
 
 	public Usuario() {
 
@@ -22,10 +24,9 @@ public class Usuario {
 		this.senhaUser = senhaUser;
 	}
 
-	public Usuario(String nomeUser, int idUser, String loginUser, String senhaUser) {
+	public Usuario(String nomeUser, String senhaUser) {
+		super();
 		this.nomeUser = nomeUser;
-		this.idUser = idUser;
-		this.loginUser = loginUser;
 		this.senhaUser = senhaUser;
 	}
 
@@ -35,14 +36,6 @@ public class Usuario {
 
 	public void setNomeUser(String nomeUser) {
 		this.nomeUser = nomeUser;
-	}
-
-	public int getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
 	}
 
 	public String getLoginUser() {
@@ -62,17 +55,34 @@ public class Usuario {
 	}
 
 	public List<Manifestacao> getManfistacoes() {
-		return manfistacoesAbertas;
+		return manifestacoesAbertas;
 	}
 
-	public int criaUserID() {
-		return this.idUser = idUser + 1;
+	public void addManifestacao(Manifestacao manifestacoes) {
+		manifestacoesAbertas.add(manifestacoes);
+	}
+
+	public String getIdUser() {
+		return idUser;
 	}
 
 	public boolean verificaUser(String login, String senha) {
-		if (this.nomeUser.equals(login) && this.sen(senha))
-			;
-		return true;
+		if (this.nomeUser.equals(login) && this.senhaUser.equals(senha)) {
+
+			return true;
+		}
+		return false;
+	}
+
+	public static String getIdAlea() {
+		Random alea = new Random();
+		int numero = alea.nextInt(999999);
+		return String.format("%06d", numero);
+	}
+
+	@Override
+	public String toString() {
+		return "Nome Completo=" + nomeUser + ", Login =" + loginUser + ", Senha = ******" + ", ID =" + idUser + "]";
 	}
 
 }
