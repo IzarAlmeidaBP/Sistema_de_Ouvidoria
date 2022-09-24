@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Manifestacao;
@@ -20,6 +22,8 @@ public class Application {
 
 		System.out.println("Ja possui conta\n1-Sim\n2-Não");
 		Integer respostaCon = Integer.parseInt(sc.nextLine());
+
+		List<Usuario> userList = new ArrayList<>();
 
 		boolean logado = true;
 		while (logado) {

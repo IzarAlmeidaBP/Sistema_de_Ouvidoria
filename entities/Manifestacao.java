@@ -13,6 +13,8 @@ public class Manifestacao {
 	private String descricao;
 	private Tipo tipoMani;
 	private Situacao situacaoMani;
+	
+	
 
 	public Manifestacao() {
 

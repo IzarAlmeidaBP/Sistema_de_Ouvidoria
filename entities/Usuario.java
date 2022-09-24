@@ -13,7 +13,7 @@ public class Usuario {
 	private String idUser = getIdAlea();
 
 	private List<Manifestacao> manifestacoesAbertas = new ArrayList<>();
-
+	
 	public Usuario() {
 
 	}
@@ -25,7 +25,6 @@ public class Usuario {
 	}
 
 	public Usuario(String nomeUser, String senhaUser) {
-		super();
 		this.nomeUser = nomeUser;
 		this.senhaUser = senhaUser;
 	}
