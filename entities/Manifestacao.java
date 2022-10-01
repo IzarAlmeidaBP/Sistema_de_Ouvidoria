@@ -1,20 +1,16 @@
 package entities;
 
 import java.util.Random;
-import java.util.UUID;
 
 import enum_Package.Situacao;
-import enum_Package.Tipo;
 
 public class Manifestacao {
 
 	private String idMani = getIdManiAlea();
 	private String titulo;
 	private String descricao;
-	private Tipo tipoMani;
+
 	private Situacao situacaoMani;
-	
-	
 
 	public Manifestacao() {
 
@@ -26,10 +22,10 @@ public class Manifestacao {
 		this.descricao = descricao;
 	}
 
-	public Manifestacao(String titulo, String descricao, Tipo tipoMani, Situacao situcaoMani) {
+	public Manifestacao(String titulo, String descricao, Situacao situcaoMani) {
 		this.titulo = titulo;
 		this.descricao = descricao;
-		this.tipoMani = tipoMani;
+
 		this.situacaoMani = situcaoMani;
 	}
 
@@ -51,14 +47,6 @@ public class Manifestacao {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public Tipo getTipoMani() {
-		return tipoMani;
-	}
-
-	public void setTipoMani(Tipo tipoMani) {
-		this.tipoMani = tipoMani;
 	}
 
 	public Situacao getSitucaoMani() {

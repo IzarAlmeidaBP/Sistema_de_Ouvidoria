@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import entities.Manifestacao;
+import entities.Sugestao;
 import entities.Usuario;
 import enum_Package.Situacao;
-import enum_Package.Tipo;
 
 public class Application {
 
@@ -58,7 +58,6 @@ public class Application {
 
 						System.out.println(usuario.getManfistacoes());
 
-						manifestacao.setTipoMani(Tipo.RECLAMAÇÃO);
 						manifestacao.setSitucaoMani(Situacao.Em_Andamento);
 
 						System.out.println("O Id da sua Manifestação é: " + manifestacao1.getIdMani());
@@ -72,8 +71,9 @@ public class Application {
 
 						System.out.println("O Id da sua Manifestação é: " + manifestacao1.getIdMani());
 						Manifestacao manifestacao = new Manifestacao(tituloR, reclamacaoT);
+						Sugestao sugestao = new Sugestao();
 						usuario.addManifestacao(manifestacao);
-						manifestacao.setTipoMani(Tipo.SUGESTÃO);
+
 						manifestacao.setSitucaoMani(Situacao.Em_Andamento);
 
 					} else if (respostaOp == 3) {
@@ -87,7 +87,7 @@ public class Application {
 						System.out.println("O Id da sua Manifestação é: " + manifestacao1.getIdMani());
 						Manifestacao manifestacao = new Manifestacao(tituloR, reclamacaoT);
 						usuario.addManifestacao(manifestacao);
-						manifestacao.setTipoMani(Tipo.ELOGIO);
+
 						manifestacao.setSitucaoMani(Situacao.Em_Andamento);
 					}
 
